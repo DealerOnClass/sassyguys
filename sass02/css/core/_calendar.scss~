@@ -1,0 +1,87 @@
+//
+//	name later..
+.calendar {
+	max-width: 30em;
+	margin: 0 auto;
+	text-align: center;
+}
+//
+//	Header
+.calendar-header-title {
+	padding-top: $y;
+	padding-bottom: $y;
+}
+//
+//	Controls
+.calendar-header {
+	@include clearfix;
+}
+.calendar-controls {
+	padding: $y ($x * 3);
+}
+.calendar-controls__left {
+	float: left;
+}
+.calendar-controls__right {
+	float: right;
+}
+//
+//	Table
+.calendar-table {
+	width: 100%;
+	th,
+	td {
+		padding: $y $x;
+	}
+	tbody {
+		th,
+		td {
+			padding-top: rhythm($y);
+			padding-bottom: rhythm($y);
+		}
+	}
+}
+//
+//	Todaysies
+.today {
+	$size: 2em;
+	position: relative;
+	&:after {
+		content: "";
+		display: block;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: $size / -2
+		margin-left: $size / -2
+		backface-visibility: hidden;
+		height: $size;
+		width: $size;
+		background-color: $secondary;
+		z-index: 0;
+	}
+}
+//
+//	Footer
+.calendar-footer {
+	padding-top: $y;
+	padding-bottom: $y;
+}
+//
+//	Themeing
+.calendar-header {
+	color: $white;
+	background-color: $primary;
+}
+.calendar-controls:hover {
+	background-color: shade($primary, 40%);
+}
+.calendar-table thead {
+	color: $primary;
+	background-color: tint($neutral, 75%);
+}
+.calendar-footer {
+	color: $white;
+	background-color: $secondary;
+}

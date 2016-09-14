@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+  *:after {
+    content: "";
+    clear: both;
+    display: block; }
+
+.container, .box {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #ff8080;
+  background-clip: content-box; }
+
+.container {
+  padding-left: 1em;
+  padding-right: 1em; }
+
+.row {
+  margin-left: -1em;
+  margin-right: -1em; }
+
+.col {
+  float: left;
+  padding-left: 1em;
+  padding-right: 1em; }
+
+.col-50 {
+  width: 50%; }
+
+.box {
+  padding-top: 3em;
+  padding-bottom: 3em; }
+
+/*# sourceMappingURL=styles.css.map */

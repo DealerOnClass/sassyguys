@@ -1,0 +1,94 @@
+//
+//	name later..
+.calendar {
+	max-width: 24em;
+	margin: 3em auto;
+	text-align: center;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 2px 40px rgba(0,0,0,0.2);
+}
+//
+//	Header
+.calendar-header-title {
+	padding-top: $y;
+	padding-bottom: $y;
+}
+//
+//	Controls
+.calendar-header {
+	@include clearfix;
+}
+.calendar-controls {
+	padding: $y ($x * 3);
+}
+.calendar-controls__left {
+	float: left;
+}
+.calendar-controls__right {
+	float: right;
+}
+//
+//	Table
+.calendar-table {
+	width: 100%;
+	th,
+	td {
+		padding: $y $x;
+	}
+	tbody {
+		th,
+		td {
+			padding-top: rhythm($y);
+			padding-bottom: rhythm($y);
+		}
+	}
+}
+//
+//	Todaysies
+.today {
+	$size: 2.5em;
+	position: relative;
+	color: $white;
+	&:after {
+		content: "";
+		display: block;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: $size / -2;
+		margin-left: $size / -2;
+		backface-visibility: hidden;
+		height: $size;
+		width: $size;
+		background-color: $secondary;
+		z-index: -1;
+	}
+}
+//
+//	Footer
+.calendar-footer {
+	padding-top: $y;
+	padding-bottom: $y;
+}
+//
+//	Themeing
+.calendar-header {
+	color: $white;
+	background-color: $primary;
+}
+.calendar-controls {
+	transition: background-color 0.25s ease-in-out;
+	&:hover {
+		background-color: shade($primary, 20%);
+	}
+}
+.calendar-table thead {
+	color: $primary;
+	background-color: $neutral;
+}
+.calendar-footer {
+	color: $white;
+	background-color: $secondary;
+}

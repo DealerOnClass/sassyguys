@@ -1,0 +1,63 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	&:after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+}
+//
+//	Helpers
+//
+@function tint($color, $percentage) {
+	@return mix(white, $color, $percentage); 
+}
+
+@function shade($color, $percentage) {
+	@return mix(black, $color, $percentage); 
+}
+
+@mixin grid-item($row: false, $gutter: 1em) {
+	@if $row {
+		margin-left: negative($gutter);
+		margin-right: negative($gutter);
+	} @else {
+		padding-left: $gutter;
+		padding-right: $gutter;
+	}
+}
+
+@function negative($input) {
+	@return $input * -1;
+}
+
+%demo-visual-box {
+	border: 1px solid rgba(0,0,0,0.2);
+	background-color: tint(red, 50%);
+	background-clip: content-box;
+}
+
+//
+//	Grid
+//
+.container {
+	@extend %demo-visual-box;
+	@include grid-item(false, 1em);
+}
+.row {
+	@include grid-item(true, 1em);
+}
+.col {
+	float: left;
+	@include grid-item(false, 1em);
+}
+.col-50 {
+	width: percentage(1/2);
+}
+.box {
+	@extend %demo-visual-box;
+	padding-top: 3em;
+	padding-bottom: 3em;
+}

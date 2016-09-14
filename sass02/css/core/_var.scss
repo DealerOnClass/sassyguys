@@ -1,0 +1,15 @@
+//
+//	typography
+$line-height: 1.618;
+//
+//	vars..
+$x: 0.5em;
+$y: 0.5em;
+//
+//	colors..
+$key:       #5263D9;
+$white:		 white;
+
+$primary:        $key;
+$secondary:      adjust-hue($key, 270deg);
+$neutral:        desaturate(lighten($key, 35%), 50%);
