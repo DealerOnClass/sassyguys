@@ -1,0 +1,143 @@
+section {
+	counter-reset: section;
+}
+section div {
+	counter-increment: section;
+}
+section div:before {
+	content: counter(section); 
+}
+//
+//	Var - Colors
+//
+$gray:           #999;
+$gray--light:    #e8e8e8;
+$purple--dark:   #615e6f;
+$purple:         #604bc0;
+$purple--light:  #7d55c5;
+//
+//	Var - Grid
+//
+$grid-gutter: 1em;
+//
+//	Var - Typography
+//
+$line-height: 3.2;
+//
+//	Var - Units
+//
+$y: 0.5em;
+$x: 1.0em;
+//
+//	Mixins
+//
+@mixin gradient-linear($start-color, $end-color, $direction: null) {
+	@if ($direction == "horizontal") {
+		background-image: linear-gradient(
+			to right,
+			$start-color, $end-color
+		);
+	} @else {
+		background-image: linear-gradient(
+			$start-color, $end-color
+		);
+	}
+}
+//
+//	Reset
+//
+* {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+	color: inherit;
+	text-decoration: none;
+}
+//
+//	Typography
+//
+html {
+	font-size: 100%;
+}
+body {
+	font-family: sans-serif;
+	line-height: $line-height;
+}
+//
+//	Breadcrumbs
+//
+$border-color:rgba(0,0,0,0.1); 
+.breadcrumb {
+	display: flex;
+	color: $gray;
+	border: 1px solid $border-color;
+	.dropdown {
+		border-left: 1px solid $border-color !important;
+		border-right: none !important;
+		margin-left: auto;
+	}
+}
+.breadcrumb-item {
+	display: inline-flex;
+	padding: $y $x;
+	border-right: 1px solid $border-color;
+	position: relative;
+	&:last-child {
+		&:before,
+		&:after {
+			display: none;
+		}
+	}
+	$height: $line-height + $y * 2;
+	$width: $height / 4;
+	$triangle-border: $gray;
+	$triangle-bg: white;
+	&:before,
+	&:after {
+		position: absolute;
+		content: "";
+		top: 0;
+		bottom: 0;
+		border-style: solid;
+		border-top-width: $height / 2;
+		border-bottom-width: $height / 2;
+	}
+	&:before {
+		left: 100%;
+		border-left-width: $width;
+		border-right-width: $width;
+		border-color: transparent transparent transparent $triangle-bg;
+		z-index: 40;
+	}
+	&:after {
+		left: calc(100% + 1px);
+		border-left-width: $width;
+		border-right-width: $width;
+		border-color: transparent transparent transparent $triangle-border;
+		z-index: 20;
+	}
+}
+.breadcrumb-item.active {
+	color: white;
+	@include gradient-linear($purple, $purple--light, "horizontal");
+	&:before {
+		border-color: transparent transparent transparent $purple--light;
+	}
+}
+.breadcrumb-link {
+	&:hover,
+	&:focus {
+		background-color: $gray--light;
+		&:before {
+			border-color: transparent transparent transparent $gray--light;
+		}
+	}
+}
+//
+//	Grid
+//
+.container {
+	max-width: 60em;
+	margin: 0 auto;
+	padding: 0 $grid-gutter;
+}
