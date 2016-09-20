@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-decoration: none; }
+
+html {
+  font-size: 100%; }
+
+body {
+  font-family: sans-serif;
+  line-height: 1.618; }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  background-color: #e4e4e4;
+  backface-visibility: hidden; }
+
+.navbar-item {
+  display: inline-flex;
+  padding: 0.5em 1em; }
+
+.navbar-link:hover {
+  background-color: #d4d4d4; }
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  position: fixed;
+  left: 0;
+  width: 15em;
+  height: 100%;
+  z-index: 100;
+  background-color: red;
+  transition-property: transform, top, height;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+  transform: translateX(-100%);
+  backface-visibility: hidden; }
+  @media (min-width: 992px) {
+    .sidebar {
+      transform: translateX(0);
+      top: 2.618em;
+      height: calc(100% - 2.618em); } }
+
+.sidebar-item {
+  display: inline-flex;
+  padding: 0.5em 1em;
+  flex-shrink: 0; }
+
+.sidebar-link:hover {
+  background-color: #d4d4d4; }
+
+.oncanvas-body {
+  transition-property: margin, width;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+  backface-visibility: hidden; }
+  @media (min-width: 992px) {
+    .oncanvas-body {
+      margin: 2.618em 0 0 15em;
+      width: calc(100% - 15em); } }
+
+.container {
+  padding: 3rem 2rem 0;
+  max-width: 90%;
+  margin: 0 auto; }
+
+@media (max-width: 991px) {
+  .sidebar-is-open {
+    overflow-y: hidden; }
+    .sidebar-is-open .sidebar {
+      transform: translateX(0); }
+    .sidebar-is-open .oncanvas-body {
+      margin-left: 0;
+      width: 100%; }
+    .sidebar-is-open .offcanvas-backdrop {
+      opacity: 1;
+      pointer-events: all; } }
+
+.offcanvas-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+  pointer-events: none;
+  z-index: 50; }

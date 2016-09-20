@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: none; }
+
+body {
+  font-family: sans-serif;
+  line-height: 1.618;
+  padding: 2em; }
+
+hr {
+  display: block;
+  border: 0 none;
+  margin: 0 2rem;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.btn {
+  display: inline-flex;
+  padding: 0.5em 1em;
+  border: 1px solid;
+  border-radius: 5px; }
+  .btn:active {
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.2); }
+
+.btn-push {
+  transition-property: transform, box-shadow;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in-out;
+  backface-visibility: hidden; }
+  .btn-push:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 0 currentColor; }
+  .btn-push:active {
+    transform: translateY(0);
+    box-shadow: 0 0 0 currentColor; }
+
+.btn-cta {
+  color: white;
+  border-color: orange;
+  background-color: orange; }
+
+.btn-cta.btn-push:hover {
+  box-shadow: 0 3px 0 #b37400; }
+
+.btn-cta.btn-push:active {
+  box-shadow: 0 0 0 orange; }
+
+.btn-main {
+  color: white;
+  border-color: rebeccapurple;
+  background-color: rebeccapurple; }
+
+.btn-main.btn-push:hover {
+  box-shadow: 0 3px 0 #402060; }
+
+.btn-main.btn-push:active {
+  box-shadow: 0 0 0 rebeccapurple; }
+
+.btn-danger {
+  color: white;
+  border-color: tomato;
+  background-color: tomato; }
+
+.btn-danger.btn-push:hover {
+  box-shadow: 0 3px 0 #fa2600; }
+
+.btn-danger.btn-push:active {
+  box-shadow: 0 0 0 tomato; }
+
+.btn-info {
+  color: white;
+  border-color: dodgerblue;
+  background-color: dodgerblue; }
+
+.btn-info.btn-push:hover {
+  box-shadow: 0 3px 0 #006ad1; }
+
+.btn-info.btn-push:active {
+  box-shadow: 0 0 0 dodgerblue; }

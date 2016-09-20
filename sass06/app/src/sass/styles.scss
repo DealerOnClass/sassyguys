@@ -1,0 +1,70 @@
+* {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+	color: inherit;
+	text-decoration: none;
+}
+body {
+	font-family: sans-serif;
+	line-height: 1.618;
+	padding: 2em;
+}
+hr {
+	display: block;
+	border: 0 none;
+	margin: 0 2rem;
+	height: 1px;
+	background-color: rgba(0,0,0,.2);
+}
+.btn {
+	display: inline-flex;
+	padding: 0.5em 1em;
+	border: 1px solid;
+	border-radius: 5px;
+	&:active {
+		box-shadow: inset 0 3px 6px rgba(0,0,0,0.2);
+	}
+}
+.btn-push {
+	transition-property: transform, box-shadow;
+	transition-duration: 0.1s;
+	transition-timing-function: ease-in-out;
+	backface-visibility: hidden;
+	&:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 3px 0 currentColor;
+	}
+	&:active {
+		transform: translateY(0);
+		box-shadow: 0 0 0 currentColor;
+	}
+}
+$palette-primary: (
+	"cta": orange,
+	"main": rebeccapurple,
+);
+$palette-states: (
+	"danger": tomato,
+	"info": dodgerblue,
+);
+@mixin btn-color($palette) {
+	@each $class, $color in $palette {
+		.btn-#{$class} {
+			color: white;
+			border-color: $color;
+			background-color: $color;
+		}
+		.btn-#{$class}.btn-push {
+			&:hover {
+				box-shadow: 0 3px 0 darken($color, 15%);
+			}
+			&:active {
+				box-shadow: 0 0 0 $color;
+			}
+		}
+		
+	}
+}
+@include btn-color($palette-primary);
+@include btn-color($palette-states);
