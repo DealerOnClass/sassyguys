@@ -1,0 +1,21 @@
+#
+#   general settings
+title: yo.
+source: "./app/"
+
+#
+#   collections
+collections:   
+    pokemons:
+        output: true
+
+defaults:
+    - scope: 
+        type: pokemons
+      values:
+        layout: pokemon
+#
+#   exclude
+exclude: 
+    - node_modules
+    - package.json

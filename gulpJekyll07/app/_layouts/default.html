@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ site.baseurl }}</title>
+	<link rel="stylesheet" href="{{ 'assets/css/styles.css' | prepend: site.baseurl }}">
+</head>
+<body>
+	{{ content }}	
+	<script defer src="{{ 'assets/js/script.js' | prepend: site.baseurl }}"></script>
+</body>
+</html>

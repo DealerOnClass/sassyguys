@@ -1,0 +1,7 @@
+---
+layout: default
+---
+{% for pokemon in site.pokemons %}
+<a href="{{ pokemon.url }}">{{ pokemon.title }}</a>
+<br>
+{% endfor %}
